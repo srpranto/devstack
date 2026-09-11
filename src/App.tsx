@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 const App = () => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/technologies.json")
@@ -47,11 +47,11 @@ const App = () => {
   const handleRemoveAll = (): void => {
     if (stack.length === 0) return;
     setStack([]);
-    toast.error("All items removed from your stack.");
+    toast.info("All items removed from your stack.");
   };
 
   return (
-    <div className="min-h-screen text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen text-slate-900 flex flex-col font-sans overflow-x-hidden">
       <Navbar />
       <main className="flex-1">
         <Hero />

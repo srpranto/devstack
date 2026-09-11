@@ -8,7 +8,7 @@ const Hero = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
             Build Your Ideal <br className="hidden sm:inline" />
             <span className="brand-gradient-text">Development Stack</span>
           </h1>

@@ -18,7 +18,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ## 🚀 Key Features
 
-1. **Dynamic Technology Catalog & Filtering**
+1. **Dynamic Technology Catalog**
    - 12 real-world technologies fetched dynamically via `useEffect` from a local JSON endpoint, displaying category chips, ratings, and difficulty badges.
 
 2. **Interactive "Your Stack" Builder with Validation**

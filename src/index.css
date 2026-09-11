@@ -3,7 +3,6 @@
 
 :root {
   font-family: Inter, "Segoe UI", sans-serif;
-  color: #0f172a;
   --brand-gradient: linear-gradient(
     135deg,
     #f97316 0%,
@@ -70,11 +69,11 @@ body {
 }
 
 .Toastify__progress-bar--warning {
-  background: linear-gradient(135deg, #f97316 0%, #ec4899 100%) !important;
+  background: var(--brand-gradient) !important;
 }
 
 .Toastify__progress-bar--info {
-  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%) !important;
+  background: var(--brand-gradient) !important;
 }
 
 .Toastify__progress-bar--error {
