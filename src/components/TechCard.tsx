@@ -3,11 +3,10 @@ import type { Technology } from "../types/technology";
 interface TechCardProps {
   tech: Technology;
   onAdd: (tech: Technology) => void;
-  onRemove: (id: string) => void;
   isAdded: boolean;
 }
 
-const TechCard = ({ tech, onAdd, onRemove, isAdded }: TechCardProps) => {
+const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
   const { name, category, description, icon, rating, difficulty, badge } = tech;
 
   return (
@@ -36,29 +35,15 @@ const TechCard = ({ tech, onAdd, onRemove, isAdded }: TechCardProps) => {
       </div>
 
       <button
-        onClick={() => {
-          if (isAdded) {
-            onRemove(tech.id);
-          } else {
-            onAdd(tech);
-          }
-        }}
+        disabled={isAdded}
+        onClick={() => onAdd(tech)}
         className={`w-full mt-4 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
           isAdded
-            ? "bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 border border-slate-200 hover:border-red-200 active:scale-95 group"
+            ? "bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed"
             : "bg-slate-900 hover:bg-slate-800 text-white active:scale-95"
         }`}
       >
-        {isAdded ? (
-          <>
-            <span className="group-hover:hidden">✓ Added to Stack</span>
-            <span className="hidden group-hover:inline">
-              ✕ Remove from Stack
-            </span>
-          </>
-        ) : (
-          "Add to Stack"
-        )}
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );

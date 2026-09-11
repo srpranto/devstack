@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../assets/logo-text.png";
 import hamburger from "../assets/hamburger.png";
 
 const Navbar = () => {
@@ -60,8 +59,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center md:hidden">
+        <div className="relative flex items-center justify-between h-16">
+          <div className="flex items-center md:hidden z-10">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 -ml-2 rounded-lg hover:bg-slate-100 transition-colors"
@@ -75,13 +74,12 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex items-center justify-center md:justify-start shrink-0">
-            <a href="#home">
-              <img
-                src={logo}
-                alt="Dev Stack"
-                className="h-6 sm:h-7 w-auto object-contain"
-              />
+          <div className="flex items-center justify-center absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 shrink-0">
+            <a
+              href="#home"
+              className="text-xl font-extrabold tracking-tight brand-gradient-text"
+            >
+              Dev Stack
             </a>
           </div>
 
@@ -89,7 +87,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
 
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 z-10">
             <button className="text-xs sm:text-sm font-medium text-slate-700 hover:text-slate-900 px-2 sm:px-3 py-1.5">
               Sign In
             </button>

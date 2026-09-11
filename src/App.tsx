@@ -86,7 +86,6 @@ const App = () => {
                       key={tech.id}
                       tech={tech}
                       onAdd={handleAddToStack}
-                      onRemove={handleRemove}
                       isAdded={stack.some((item) => item.id === tech.id)}
                     />
                   ))}

@@ -4,7 +4,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - **Framework:** React 19
 - **Language:** TypeScript
@@ -16,10 +16,10 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ---
 
-## Key Features
+## 🚀 Key Features
 
 1. **Dynamic Technology Catalog & Filtering**
-   - 12 real-world technologies fetched dynamically via `useEffect` from a local JSON endpoint, showing category chips, ratings, and difficulty badges.
+   - 12 real-world technologies fetched dynamically via `useEffect` from a local JSON endpoint, displaying category chips, ratings, and difficulty badges.
 
 2. **Interactive "Your Stack" Builder with Validation**
    - Select technologies to assemble a custom stack in a dedicated sidebar.
@@ -32,7 +32,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ---
 
-## React Core Questions & Answers
+## 💡 React Core Questions & Answers
 
 ### 1. What is JSX, and why is it used in React?
 
@@ -49,7 +49,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 **Answer:** The `useState` hook declares a reactive state variable and provides a setter function to update it. In this project, `useState` was used in:
 
-- `src/App.tsx` to store the list of technologies (`technologies`), the user's selected technologies (`stack`), and the `loading` boolean state.
+- `src/App.tsx` to store the list of technologies (`technologies`), the user's selected technologies (`stack`), and the loading boolean state.
 - `src/components/Navbar.tsx` to manage the mobile hamburger menu open/close toggle state (`isOpen`).
 
 ### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
@@ -62,8 +62,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ### 6. What is conditional rendering? Show one place you used it (example: the empty stack message).
 
-**Answer:** Conditional rendering means rendering different UI elements or components based on specific conditions or state. In this project, conditional rendering was used in `src/components/YourStack.tsx`:
-When `stack.length === 0`, it displays a dashed container with the message _"Your stack is empty."_. When `stack.length > 0`, it instead renders the list of selected technology cards along with the _"Remove All"_ button.
+**Answer:** Conditional rendering means rendering different UI elements or components based on specific conditions or state. In this project, conditional rendering was used in `src/components/YourStack.tsx`: When `stack.length === 0`, it displays a dashed container with the message `"Your stack is empty."`. When `stack.length > 0`, it instead renders the list of selected technology cards along with the `"Remove All"` button.
 
 ### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
