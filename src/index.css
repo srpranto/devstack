@@ -5,9 +5,9 @@
   font-family: Inter, "Segoe UI", sans-serif;
   --brand-gradient: linear-gradient(
     135deg,
-    #f97316 0%,
-    #ec4899 50%,
-    #8b5cf6 100%
+    #22d3ee 0%,
+    #8b5cf6 50%,
+    #ec4899 100%
   );
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .Toastify__toast--warning {
-  border-left: 4px solid #f97316 !important;
+  border-left: 4px solid #22d3ee !important;
 }
 
 .Toastify__toast--info {

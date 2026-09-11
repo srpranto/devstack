@@ -24,7 +24,7 @@ const Footer = () => {
                 href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-pink-600"
+                className="hover:text-violet-600"
               >
                 GitHub
               </a>
@@ -33,7 +33,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-pink-600"
+                className="hover:text-violet-600"
               >
                 Twitter
               </a>
@@ -42,7 +42,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-pink-600"
+                className="hover:text-violet-600"
               >
                 LinkedIn
               </a>
@@ -55,17 +55,17 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-slate-500">
               <li>
-                <a href="#home" className="hover:text-pink-600">
+                <a href="#home" className="hover:text-violet-600">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#technologies" className="hover:text-pink-600">
+                <a href="#technologies" className="hover:text-violet-600">
                   Technologies
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-pink-600">
+                <a href="#projects" className="hover:text-violet-600">
                   Projects
                 </a>
               </li>
@@ -78,17 +78,17 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-slate-500">
               <li>
-                <a href="#about" className="hover:text-pink-600">
+                <a href="#about" className="hover:text-violet-600">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-pink-600">
+                <a href="#contact" className="hover:text-violet-600">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#careers" className="hover:text-pink-600">
+                <a href="#careers" className="hover:text-violet-600">
                   Careers
                 </a>
               </li>
@@ -101,12 +101,12 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-slate-500">
               <li>
-                <a href="#privacy" className="hover:text-pink-600">
+                <a href="#privacy" className="hover:text-violet-600">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#terms" className="hover:text-pink-600">
+                <a href="#terms" className="hover:text-violet-600">
                   Terms of Service
                 </a>
               </li>
@@ -117,10 +117,10 @@ const Footer = () => {
         <div className="pt-8 mt-8 border-t border-slate-100 flex flex-row items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2 sm:gap-4">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex justify-end gap-3 sm:gap-4 shrink-0">
-            <a href="#privacy" className="hover:text-pink-600">
+            <a href="#privacy" className="hover:text-violet-600">
               Privacy
             </a>
-            <a href="#terms" className="hover:text-pink-600">
+            <a href="#terms" className="hover:text-violet-600">
               Terms
             </a>
           </div>

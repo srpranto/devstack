@@ -28,7 +28,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 3. **Smooth, Responsive UI with Aesthetic Notifications**
    - Pixel-perfect layout inspired by modern design standards, responsive across mobile, tablet, and desktop screens.
-   - Custom-themed React-Toastify alerts utilizing a unified brand gradient (`#f97316` → `#ec4899` → `#8b5cf6`) with smooth slide transitions and in-page anchor scrolling.
+   - Custom-themed React-Toastify alerts utilizing a unified brand gradient (`#22d3ee` → `#8b5cf6` → `#ec4899`) with smooth slide transitions and in-page anchor scrolling.
 
 ---
 

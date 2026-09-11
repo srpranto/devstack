@@ -12,7 +12,7 @@ const Navbar = () => {
         <a
           href="#home"
           onClick={closeMenu}
-          className="text-pink-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           Home
         </a>
@@ -21,7 +21,7 @@ const Navbar = () => {
         <a
           href="#technologies"
           onClick={closeMenu}
-          className="text-slate-600 hover:text-pink-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           Technologies
         </a>
@@ -30,7 +30,7 @@ const Navbar = () => {
         <a
           href="#projects"
           onClick={closeMenu}
-          className="text-slate-600 hover:text-pink-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           Projects
         </a>
@@ -39,7 +39,7 @@ const Navbar = () => {
         <a
           href="#about"
           onClick={closeMenu}
-          className="text-slate-600 hover:text-pink-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           About
         </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
         <a
           href="#contact"
           onClick={closeMenu}
-          className="text-slate-600 hover:text-pink-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           Contact
         </a>

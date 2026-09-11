@@ -101,7 +101,7 @@ const App = () => {
             <div className="w-full lg:flex-1">
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-20">
-                  <span className="loading loading-spinner loading-lg text-pink-500"></span>
+                  <span className="loading loading-spinner loading-lg text-violet-500"></span>
                   <p className="text-xs text-slate-400 mt-3 font-medium">
                     Loading technologies...
                   </p>

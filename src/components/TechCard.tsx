@@ -25,7 +25,7 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
         </p>
 
         <div className="flex items-center justify-between text-xs text-slate-500 mt-4 pt-3 border-t border-slate-100">
-          <span className="text-[11px] font-semibold text-pink-600 bg-pink-50 border border-pink-100 px-2.5 py-0.5 rounded-full">
+          <span className="text-[11px] font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full">
             {category}
           </span>
           <span>{difficulty}</span>
