@@ -31,9 +31,7 @@ build
 .turbo
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+.vscode/
 .idea
 *.suo
 *.ntvs*
