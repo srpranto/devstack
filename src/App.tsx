@@ -103,7 +103,7 @@ const App = () => {
             {/* Technology cards grid ends here */}
 
             {/* Your stack sidebar starts here */}
-            <div className="w-full lg:w-80 xl:w-85 shrink-0">
+            <div className="w-full lg:w-80 shrink-0">
               <YourStack
                 stack={stack}
                 onRemove={handleRemove}

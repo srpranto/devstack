@@ -17,7 +17,7 @@ const Hero = () => {
             them side by side, and put together the stack that fits your next
             project.
           </p>
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
+          <div className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <a
               href="#technologies"
               className="text-white brand-gradient font-medium text-xs sm:text-sm rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 shadow-sm hover:opacity-95 transition-opacity text-center"

@@ -64,14 +64,8 @@ body {
   border-left: 4px solid #ef4444 !important;
 }
 
-.Toastify__progress-bar--success {
-  background: var(--brand-gradient) !important;
-}
-
-.Toastify__progress-bar--warning {
-  background: var(--brand-gradient) !important;
-}
-
+.Toastify__progress-bar--success,
+.Toastify__progress-bar--warning,
 .Toastify__progress-bar--info {
   background: var(--brand-gradient) !important;
 }
