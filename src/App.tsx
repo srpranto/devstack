@@ -75,7 +75,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen text-slate-900 flex flex-col font-sans overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 flex flex-col font-sans">
       <Navbar />
 
       <main className="flex-1">
