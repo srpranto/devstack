@@ -9,10 +9,12 @@ import YourStack from "./components/YourStack";
 import Footer from "./components/Footer";
 
 const App = () => {
+  // States
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Load technology data on mount
   useEffect(() => {
     fetch("/technologies.json")
       .then((res) => res.json())
@@ -26,6 +28,7 @@ const App = () => {
       });
   }, []);
 
+  // Add technology to stack (with duplicate check)
   const handleAddToStack = (tech: Technology): void => {
     const isAlreadyAdded = stack.some((item) => item.id === tech.id);
     if (isAlreadyAdded) {
@@ -36,6 +39,7 @@ const App = () => {
     toast.success(`${tech.name} added to your stack!`);
   };
 
+  // Remove a single technology
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
     setStack((prev) => prev.filter((item) => item.id !== id));
@@ -44,6 +48,7 @@ const App = () => {
     }
   };
 
+  // Clear the entire stack
   const handleRemoveAll = (): void => {
     if (stack.length === 0) return;
     setStack([]);
