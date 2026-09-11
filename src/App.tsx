@@ -32,13 +32,13 @@ const App = () => {
       toast.warn(`${tech.name} is already added to your stack!`);
       return;
     }
-    setStack([...stack, tech]);
+    setStack((prev) => [...prev, tech]);
     toast.success(`${tech.name} added to your stack!`);
   };
 
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
-    setStack(stack.filter((item) => item.id !== id));
+    setStack((prev) => prev.filter((item) => item.id !== id));
     if (itemToRemove) {
       toast.info(`${itemToRemove.name} removed from your stack.`);
     }
@@ -80,7 +80,7 @@ const App = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                   {technologies.map((tech) => (
                     <TechCard
                       key={tech.id}
