@@ -114,7 +114,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 mt-8 border-t border-slate-100 flex flex-row items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2 sm:gap-4">
+        <div className="pt-8 mt-8 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2 sm:gap-4">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex justify-end gap-3 sm:gap-4 shrink-0">
             <a href="#privacy" className="hover:text-violet-600">

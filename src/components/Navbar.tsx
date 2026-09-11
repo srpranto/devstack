@@ -12,7 +12,7 @@ const Navbar = () => {
         <a
           href="#home"
           onClick={closeMenu}
-          className="text-violet-600 font-medium transition-colors block py-1 md:py-0"
+          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
         >
           Home
         </a>
@@ -105,7 +105,9 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden border-t border-slate-100 bg-white px-4 py-3 shadow-lg">
-          <ul className="flex flex-col gap-2.5 text-sm">{navLinks}</ul>
+          <ul className="flex flex-col gap-2.5 text-sm text-center">
+            {navLinks}
+          </ul>
         </div>
       )}
     </nav>
