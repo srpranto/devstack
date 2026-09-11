@@ -13,6 +13,7 @@ const App = () => {
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch technologies data
   useEffect(() => {
     fetch("/technologies.json")
       .then((res) => res.json())
@@ -26,6 +27,7 @@ const App = () => {
       });
   }, []);
 
+  // Add technology to stack
   const handleAddToStack = (tech: Technology): void => {
     const isAlreadyAdded = stack.some((item) => item.id === tech.id);
     if (isAlreadyAdded) {
@@ -36,6 +38,7 @@ const App = () => {
     toast.success(`${tech.name} added to your stack!`);
   };
 
+  // Remove single technology from stack
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
     setStack((prev) => prev.filter((item) => item.id !== id));
@@ -44,6 +47,7 @@ const App = () => {
     }
   };
 
+  // Remove all technologies from stack
   const handleRemoveAll = (): void => {
     if (stack.length === 0) return;
     setStack([]);
@@ -52,10 +56,16 @@ const App = () => {
 
   return (
     <div className="min-h-screen text-slate-900 flex flex-col font-sans overflow-x-hidden">
+      {/* Navbar starts here */}
       <Navbar />
-      <main className="flex-1">
-        <Hero />
+      {/* Navbar ends here */}
 
+      <main className="flex-1">
+        {/* Hero section starts here */}
+        <Hero />
+        {/* Hero section ends here */}
+
+        {/* Technologies section starts here */}
         <section
           id="technologies"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
@@ -71,6 +81,7 @@ const App = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+            {/* Technology cards grid starts here */}
             <div className="w-full lg:flex-1">
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-20">
@@ -92,7 +103,9 @@ const App = () => {
                 </div>
               )}
             </div>
+            {/* Technology cards grid ends here */}
 
+            {/* Your stack sidebar starts here */}
             <div className="w-full lg:w-80 xl:w-85 shrink-0">
               <YourStack
                 stack={stack}
@@ -100,11 +113,15 @@ const App = () => {
                 onRemoveAll={handleRemoveAll}
               />
             </div>
+            {/* Your stack sidebar ends here */}
           </div>
         </section>
+        {/* Technologies section ends here */}
       </main>
 
+      {/* Footer starts here */}
       <Footer />
+      {/* Footer ends here */}
       <ToastContainer
         position="top-right"
         autoClose={2500}
