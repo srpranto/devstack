@@ -12,9 +12,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
       <div>
         <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
         <p className="text-xs text-slate-500 mt-1">
-          {stack.length === 0
-            ? "No technologies selected yet."
-            : `${stack.length} Technology Selected`}
+          {stack.length} Technology Selected
         </p>
       </div>
 
