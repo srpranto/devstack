@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import {
+  ToastContainer,
+  toast,
+  Slide,
+  type ToastPosition,
+} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
@@ -13,6 +18,20 @@ const App = () => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
+  const [toastPosition, setToastPosition] =
+    useState<ToastPosition>("top-right");
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 640px)");
+    const updatePosition = () => {
+      setToastPosition(media.matches ? "bottom-right" : "top-right");
+    };
+
+    updatePosition();
+    media.addEventListener("change", updatePosition);
+
+    return () => media.removeEventListener("change", updatePosition);
+  }, []);
 
   // Load technology data on mount
   useEffect(() => {
@@ -118,7 +137,7 @@ const App = () => {
 
       <Footer />
       <ToastContainer
-        position="top-right"
+        position={toastPosition}
         autoClose={2500}
         hideProgressBar={false}
         newestOnTop
