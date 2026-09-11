@@ -38,37 +38,28 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ### 1. What is JSX, and why is it used in React?
 
-**Answer:** JSX stands for JavaScript XML. It is a syntax extension that lets us write HTML-like elements and templates directly inside JavaScript files. JSX is used in React because it makes component code clean, intuitive, and readable while allowing the full power of JavaScript expressions inside curly braces `{ }`.
+**Answer:** JSX lets us write HTML-like code inside JavaScript. We use it in React because it makes the UI code easier to write and understand.
 
 ### 2. What is the difference between props and state?
 
-**Answer:**
-
-- **Props:** External, read-only data passed down from a parent component to a child component. The receiving child cannot modify props.
-- **State:** Internal, mutable data managed within the component itself. Updating state causes the component and its children to re-render.
+**Answer:** Props are data passed from a parent component to a child component. State is data that a component manages and can change when something happens.
 
 ### 3. What does the useState hook do, and where did you use it in this project?
 
-**Answer:** The `useState` hook declares a reactive state variable and provides a setter function to update it. In this project, `useState` was used in:
-
-- `src/App.tsx` to store the list of technologies (`technologies`), the user's selected technologies (`stack`), and the loading boolean state.
-- `src/components/Navbar.tsx` to manage the mobile hamburger menu open/close toggle state (`isOpen`).
+**Answer:** `useState` lets us create and update data inside a component. I used it in `App.tsx` for the technologies, selected stack, and loading state. I also used it in `Navbar.tsx` for the mobile menu.
 
 ### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
 
-**Answer:** `useEffect` handles side effects like data fetching, DOM updates, or subscriptions outside the rendering flow. In this project, `useEffect` was needed in `src/App.tsx` with an empty dependency array `[]` to fetch `/technologies.json` once when the application mounts, avoiding infinite fetch loops during renders.
+**Answer:** `useEffect` is used when we need to do something after the component renders. I used it in `App.tsx` to load the technology data from the JSON file when the app starts.
 
 ### 5. Why does every item in a .map() list need a unique key prop?
 
-**Answer:** React uses the `key` prop during its Virtual DOM diffing process to identify which list items have changed, been added, or been removed. Unique keys ensure efficient rendering, maintain correct component state, and prevent UI bugs when list items are added or removed.
+**Answer:** React uses the key to know which item is which when the list changes. A unique key helps React update the right item without unnecessary changes.
 
-### 6. What is conditional rendering? Show one place you used it (example: the empty stack message).
+### 6. What is conditional rendering? Show one place you used it.
 
-**Answer:** Conditional rendering means rendering different UI elements or components based on specific conditions or state. In this project, conditional rendering was used in `src/components/YourStack.tsx`: When `stack.length === 0`, it displays a dashed container with the message `"Your stack is empty."`. When `stack.length > 0`, it instead renders the list of selected technology cards along with the `"Remove All"` button.
+**Answer:** Conditional rendering means showing different UI based on a condition. In this project, I used it in `YourStack.tsx`. When the stack is empty, it shows "Your stack is empty." Otherwise, it shows the selected technologies.
 
 ### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
-**Answer:**
-
-- **Parent to child:** The parent passes data down through props (e.g., `App.tsx` passes `tech={tech}` and `isAdded={...}` to `TechCard.tsx`).
-- **Child to parent:** The parent passes a callback function as a prop (e.g., `onAdd={handleAddToStack}`). When an event occurs (such as clicking the button), the child invokes that callback function with the necessary arguments, passing data back up to the parent.
+**Answer:** A parent sends data to a child through props. A child can send something back by calling a function that the parent passed as a prop. In this project, `App.tsx` passes data and functions to components like `TechCard.tsx`.
