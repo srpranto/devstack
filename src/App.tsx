@@ -13,7 +13,6 @@ const App = () => {
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch technologies data
   useEffect(() => {
     fetch("/technologies.json")
       .then((res) => res.json())
@@ -27,7 +26,6 @@ const App = () => {
       });
   }, []);
 
-  // Add technology to stack
   const handleAddToStack = (tech: Technology): void => {
     const isAlreadyAdded = stack.some((item) => item.id === tech.id);
     if (isAlreadyAdded) {
@@ -38,7 +36,6 @@ const App = () => {
     toast.success(`${tech.name} added to your stack!`);
   };
 
-  // Remove single technology from stack
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
     setStack((prev) => prev.filter((item) => item.id !== id));
@@ -47,7 +44,6 @@ const App = () => {
     }
   };
 
-  // Remove all technologies from stack
   const handleRemoveAll = (): void => {
     if (stack.length === 0) return;
     setStack([]);
@@ -56,14 +52,10 @@ const App = () => {
 
   return (
     <div className="min-h-screen text-slate-900 flex flex-col font-sans overflow-x-hidden">
-      {/* Navbar starts here */}
       <Navbar />
-      {/* Navbar ends here */}
 
       <main className="flex-1">
-        {/* Hero section starts here */}
         <Hero />
-        {/* Hero section ends here */}
 
         {/* Technologies section starts here */}
         <section
@@ -119,9 +111,7 @@ const App = () => {
         {/* Technologies section ends here */}
       </main>
 
-      {/* Footer starts here */}
       <Footer />
-      {/* Footer ends here */}
       <ToastContainer
         position="top-right"
         autoClose={2500}
