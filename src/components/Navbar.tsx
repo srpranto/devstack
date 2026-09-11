@@ -75,11 +75,13 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center justify-center absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 shrink-0">
-            <a
-              href="#home"
-              className="text-xl font-extrabold tracking-tight brand-gradient-text"
-            >
-              Dev Stack
+            <a href="#home" className="flex items-center gap-2">
+              <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-xs sm:text-sm shadow-xs">
+                DS
+              </span>
+              <span className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">
+                Dev <span className="brand-gradient-text">Stack</span>
+              </span>
             </a>
           </div>
 

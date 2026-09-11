@@ -4,11 +4,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div className="sm:col-span-2 md:col-span-2">
-            <a
-              href="#home"
-              className="text-xl font-extrabold tracking-tight brand-gradient-text inline-block"
-            >
-              Dev Stack
+            <a href="#home" className="flex items-center gap-2">
+              <span className="w-7 h-7 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-xs shadow-xs">
+                DS
+              </span>
+              <span className="text-lg font-bold tracking-tight text-slate-900">
+                Dev <span className="brand-gradient-text">Stack</span>
+              </span>
             </a>
             <p className="mt-4 text-xs text-slate-500 max-w-sm leading-relaxed">
               Curated tools, technologies, and resources to develop and build
