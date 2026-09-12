@@ -37,11 +37,12 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
       </div>
 
       <div
-        onClick={() => onAdd(tech)}
+        onClick={isAdded ? () => onAdd(tech) : undefined}
         className={`mt-4 ${isAdded ? "cursor-not-allowed" : ""}`}
       >
         <button
           disabled={isAdded}
+          onClick={() => onAdd(tech)}
           className={`w-full py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
             isAdded
               ? "bg-slate-100 text-slate-400 border border-slate-200 pointer-events-none"
