@@ -67,7 +67,7 @@ const App = () => {
               <span className="brand-gradient-text">Technologies</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Pick one technology per category to build your ideal stack.
+              Pick technologies to build your ideal stack.
             </p>
           </div>
 

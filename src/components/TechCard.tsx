@@ -37,6 +37,8 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
       </div>
 
       <button
+        type="button"
+        disabled={isAdded}
         aria-disabled={isAdded}
         onClick={() => onAdd(tech)}
         className={`mt-4 w-full py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
