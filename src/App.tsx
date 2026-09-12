@@ -4,6 +4,7 @@ import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechCard from "./components/TechCard";
+import TechCardSkeleton from "./components/TechCardSkeleton";
 import YourStack from "./components/YourStack";
 import Footer from "./components/Footer";
 
@@ -74,11 +75,16 @@ const App = () => {
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
             <div className="w-full lg:flex-1">
               {loading ? (
-                <div className="flex flex-col items-center justify-center py-20">
-                  <span className="loading loading-spinner loading-lg text-violet-500"></span>
-                  <p className="text-xs text-slate-400 mt-3 font-medium">
-                    Loading technologies...
-                  </p>
+                <div>
+                  <div className="flex items-center gap-2.5 mb-5 px-3.5 py-2.5 bg-violet-50/70 border border-violet-100 rounded-xl text-violet-700 text-xs font-medium w-fit">
+                    <span className="loading loading-spinner loading-xs text-violet-600"></span>
+                    <span>Loading technologies...</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <TechCardSkeleton key={index} />
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
