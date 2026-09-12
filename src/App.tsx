@@ -13,6 +13,7 @@ const App = () => {
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // load technologies data
   useEffect(() => {
     fetch("/technologies.json")
       .then((res) => res.json())
@@ -28,6 +29,7 @@ const App = () => {
 
   const addedIds = new Set(stack.map((item) => item.id));
 
+  // add technology to stack
   const handleAddToStack = (tech: Technology): void => {
     const isAlreadyAdded = addedIds.has(tech.id);
     if (isAlreadyAdded) {
@@ -38,6 +40,7 @@ const App = () => {
     toast.success(`${tech.name} added to your stack!`);
   };
 
+  // remove technology from stack
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
     setStack((prev) => prev.filter((item) => item.id !== id));
@@ -46,6 +49,7 @@ const App = () => {
     }
   };
 
+  // clear all items from stack
   const handleRemoveAll = (): void => {
     setStack([]);
     toast.info("All items removed from your stack.");
@@ -58,6 +62,7 @@ const App = () => {
       <main className="flex-1">
         <Hero />
 
+        {/* technology starts here */}
         <section
           id="technologies"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
@@ -100,6 +105,7 @@ const App = () => {
               )}
             </div>
 
+            {/* selected stack sidebar */}
             <div className="w-full lg:w-80 shrink-0">
               <YourStack
                 stack={stack}
