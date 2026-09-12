@@ -5,7 +5,6 @@ import {
   Slide,
   type ToastPosition,
 } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
