@@ -60,7 +60,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-          <div className="flex items-center md:hidden shrink-0 z-10">
+          <div className="flex items-center justify-start md:hidden flex-1 z-10">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-1.5 -ml-1.5 rounded-lg hover:bg-slate-100 transition-colors"
@@ -74,7 +74,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center justify-center shrink-0">
+          <div className="flex items-center justify-center shrink-0">
             <a
               href="#home"
               className="flex items-center gap-1.5 sm:gap-2 shrink-0"
@@ -92,7 +92,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
 
-          <div className="flex items-center justify-end gap-1 sm:gap-3 shrink-0 z-10">
+          <div className="flex items-center justify-end gap-1 sm:gap-3 flex-1 md:flex-none z-10">
             <button className="text-[10px] sm:text-sm font-medium text-slate-700 hover:text-slate-900 px-1.5 sm:px-3 py-1 sm:py-1.5 whitespace-nowrap">
               Sign In
             </button>

@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  ToastContainer,
-  toast,
-  Slide,
-  type ToastPosition,
-} from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -13,26 +8,10 @@ import YourStack from "./components/YourStack";
 import Footer from "./components/Footer";
 
 const App = () => {
-  // States
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
   const [loading, setLoading] = useState(true);
-  const [toastPosition, setToastPosition] =
-    useState<ToastPosition>("top-right");
 
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 640px)");
-    const updatePosition = () => {
-      setToastPosition(media.matches ? "bottom-right" : "top-right");
-    };
-
-    updatePosition();
-    media.addEventListener("change", updatePosition);
-
-    return () => media.removeEventListener("change", updatePosition);
-  }, []);
-
-  // Load technology data on mount
   useEffect(() => {
     fetch("/technologies.json")
       .then((res) => res.json())
@@ -46,7 +25,6 @@ const App = () => {
       });
   }, []);
 
-  // Add technology to stack (with duplicate check)
   const handleAddToStack = (tech: Technology): void => {
     const isAlreadyAdded = stack.some((item) => item.id === tech.id);
     if (isAlreadyAdded) {
@@ -57,7 +35,6 @@ const App = () => {
     toast.success(`${tech.name} added to your stack!`);
   };
 
-  // Remove a single technology
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
     setStack((prev) => prev.filter((item) => item.id !== id));
@@ -66,7 +43,6 @@ const App = () => {
     }
   };
 
-  // Clear the entire stack
   const handleRemoveAll = (): void => {
     setStack([]);
     toast.info("All items removed from your stack.");
@@ -129,7 +105,7 @@ const App = () => {
 
       <Footer />
       <ToastContainer
-        position={toastPosition}
+        position="top-right"
         autoClose={2500}
         hideProgressBar={false}
         newestOnTop
