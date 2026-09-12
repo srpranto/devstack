@@ -48,6 +48,8 @@ const App = () => {
     toast.info("All items removed from your stack.");
   };
 
+  const addedIds = new Set(stack.map((item) => item.id));
+
   return (
     <div className="min-h-screen text-slate-900 flex flex-col font-sans">
       <Navbar />
@@ -85,7 +87,7 @@ const App = () => {
                       key={tech.id}
                       tech={tech}
                       onAdd={handleAddToStack}
-                      isAdded={stack.some((item) => item.id === tech.id)}
+                      isAdded={addedIds.has(tech.id)}
                     />
                   ))}
                 </div>

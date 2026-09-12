@@ -36,22 +36,17 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
         </div>
       </div>
 
-      <div
-        onClick={isAdded ? () => onAdd(tech) : undefined}
-        className={`mt-4 ${isAdded ? "cursor-not-allowed" : ""}`}
+      <button
+        aria-disabled={isAdded}
+        onClick={() => onAdd(tech)}
+        className={`mt-4 w-full py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
+          isAdded
+            ? "bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed"
+            : "bg-slate-900 hover:bg-slate-800 text-white active:scale-95"
+        }`}
       >
-        <button
-          disabled={isAdded}
-          onClick={() => onAdd(tech)}
-          className={`w-full py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
-            isAdded
-              ? "bg-slate-100 text-slate-400 border border-slate-200 pointer-events-none"
-              : "bg-slate-900 hover:bg-slate-800 text-white active:scale-95"
-          }`}
-        >
-          {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-        </button>
-      </div>
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+      </button>
     </div>
   );
 };

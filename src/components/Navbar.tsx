@@ -6,55 +6,19 @@ const Navbar = () => {
 
   const closeMenu = () => setIsOpen(false);
 
-  const navLinks = (
-    <>
-      <li>
-        <a
-          href="#home"
-          onClick={closeMenu}
-          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
-        >
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          href="#technologies"
-          onClick={closeMenu}
-          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
-        >
-          Technologies
-        </a>
-      </li>
-      <li>
-        <a
-          href="#projects"
-          onClick={closeMenu}
-          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
-        >
-          Projects
-        </a>
-      </li>
-      <li>
-        <a
-          href="#about"
-          onClick={closeMenu}
-          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
-        >
-          About
-        </a>
-      </li>
-      <li>
-        <a
-          href="#contact"
-          onClick={closeMenu}
-          className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
-        >
-          Contact
-        </a>
-      </li>
-    </>
-  );
+  const navItems = ["Home", "Technologies", "Projects", "About", "Contact"];
+
+  const navLinks = navItems.map((item) => (
+    <li key={item}>
+      <a
+        href={`#${item.toLowerCase()}`}
+        onClick={closeMenu}
+        className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
+      >
+        {item}
+      </a>
+    </li>
+  ));
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
@@ -88,7 +52,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          <ul className="hidden md:flex items-center gap-4 lg:gap-8 text-xs lg:text-sm">
+          <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 lg:gap-8 text-xs lg:text-sm">
             {navLinks}
           </ul>
 
