@@ -47,9 +47,10 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
                   </div>
                 </div>
                 <button
+                  type="button"
                   aria-label={`Remove ${item.name}`}
                   onClick={() => onRemove(item.id)}
-                  className="text-slate-400 hover:text-slate-700 text-sm p-1 leading-none transition-colors"
+                  className="text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg text-sm p-1 leading-none transition-colors cursor-pointer"
                 >
                   ✕
                 </button>
@@ -58,8 +59,9 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
           </div>
 
           <button
+            type="button"
             onClick={onRemoveAll}
-            className="w-full mt-5 py-2 rounded-xl border border-violet-200 text-violet-600 hover:bg-violet-50 font-semibold text-xs transition-colors"
+            className="w-full mt-5 py-2 rounded-xl border border-violet-200 text-violet-600 hover:bg-violet-50 font-semibold text-xs transition-colors cursor-pointer"
           >
             Remove All
           </button>

@@ -25,8 +25,10 @@ const App = () => {
       });
   }, []);
 
+  const addedIds = new Set(stack.map((item) => item.id));
+
   const handleAddToStack = (tech: Technology): void => {
-    const isAlreadyAdded = stack.some((item) => item.id === tech.id);
+    const isAlreadyAdded = addedIds.has(tech.id);
     if (isAlreadyAdded) {
       toast.warn(`${tech.name} is already added to your stack!`);
       return;
@@ -47,8 +49,6 @@ const App = () => {
     setStack([]);
     toast.info("All items removed from your stack.");
   };
-
-  const addedIds = new Set(stack.map((item) => item.id));
 
   return (
     <div className="min-h-screen text-slate-900 flex flex-col font-sans">

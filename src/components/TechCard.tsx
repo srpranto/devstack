@@ -43,7 +43,7 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
         className={`mt-4 w-full py-2.5 px-4 rounded-xl text-xs font-semibold transition-all ${
           isAdded
             ? "bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed"
-            : "bg-slate-900 hover:bg-slate-800 text-white active:scale-95"
+            : "bg-slate-900 hover:bg-slate-800 text-white active:scale-95 cursor-pointer"
         }`}
       >
         {isAdded ? "✓ Added to Stack" : "Add to Stack"}

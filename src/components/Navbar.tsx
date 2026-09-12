@@ -15,7 +15,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 -ml-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+              className="p-1.5 -ml-1.5 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
               aria-label="Toggle Menu"
               aria-expanded={isOpen}
             >
@@ -67,13 +67,13 @@ const Navbar = () => {
           <div className="flex items-center justify-end gap-1 sm:gap-3 flex-1 md:flex-none z-10">
             <button
               type="button"
-              className="text-[10px] sm:text-sm font-medium text-slate-700 hover:text-slate-900 px-1.5 sm:px-3 py-1 sm:py-1.5 whitespace-nowrap"
+              className="text-[10px] sm:text-sm font-medium text-slate-700 hover:text-slate-900 px-1.5 sm:px-3 py-1 sm:py-1.5 whitespace-nowrap cursor-pointer"
             >
               Sign In
             </button>
             <button
               type="button"
-              className="text-[10px] sm:text-sm font-medium text-white brand-gradient rounded-full px-2.5 sm:px-5 py-1 sm:py-2 shadow-sm hover:opacity-95 transition-opacity whitespace-nowrap"
+              className="text-[10px] sm:text-sm font-medium text-white brand-gradient rounded-full px-2.5 sm:px-5 py-1 sm:py-2 shadow-sm hover:opacity-95 transition-opacity whitespace-nowrap cursor-pointer"
             >
               Sign Up
             </button>
