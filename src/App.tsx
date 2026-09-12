@@ -68,7 +68,6 @@ const App = () => {
 
   // Clear the entire stack
   const handleRemoveAll = (): void => {
-    if (stack.length === 0) return;
     setStack([]);
     toast.info("All items removed from your stack.");
   };
@@ -80,7 +79,6 @@ const App = () => {
       <main className="flex-1">
         <Hero />
 
-        {/* Technologies section starts here */}
         <section
           id="technologies"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
@@ -96,7 +94,6 @@ const App = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
-            {/* Technology cards grid starts here */}
             <div className="w-full lg:flex-1">
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-20">
@@ -118,9 +115,7 @@ const App = () => {
                 </div>
               )}
             </div>
-            {/* Technology cards grid ends here */}
 
-            {/* Your stack sidebar starts here */}
             <div className="w-full lg:w-80 shrink-0">
               <YourStack
                 stack={stack}
@@ -128,10 +123,8 @@ const App = () => {
                 onRemoveAll={handleRemoveAll}
               />
             </div>
-            {/* Your stack sidebar ends here */}
           </div>
         </section>
-        {/* Technologies section ends here */}
       </main>
 
       <Footer />
