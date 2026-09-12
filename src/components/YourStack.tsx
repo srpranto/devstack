@@ -7,18 +7,21 @@ interface YourStackProps {
 }
 
 const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
+  const isEmpty = stack.length === 0;
+
   return (
     <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm lg:sticky lg:top-20">
       <div>
         <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
         <p className="text-xs text-slate-500 mt-1">
-          {stack.length} {stack.length === 1 ? "Technology" : "Technologies"}{" "}
-          Selected
+          {isEmpty
+            ? "No technologies selected yet."
+            : `${stack.length} ${stack.length === 1 ? "Technology" : "Technologies"} Selected`}
         </p>
       </div>
 
-      {stack.length === 0 ? (
-        <div className="border border-dashed border-slate-200 rounded-2xl py-8 sm:py-10 px-4 flex items-center justify-center mt-5 sm:mt-6">
+      {isEmpty ? (
+        <div className="border border-dashed border-slate-200 rounded-xl py-5 sm:py-6 px-4 flex items-center justify-center mt-4">
           <span className="text-slate-400 text-xs font-normal">
             Your stack is empty.
           </span>
