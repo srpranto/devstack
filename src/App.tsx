@@ -8,6 +8,11 @@ import TechCardSkeleton from "./components/TechCardSkeleton";
 import YourStack from "./components/YourStack";
 import Footer from "./components/Footer";
 
+const skeletonItems: number[] = [];
+for (let i = 0; i < 6; i++) {
+  skeletonItems.push(i);
+}
+
 const App = () => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
@@ -15,7 +20,12 @@ const App = () => {
 
   useEffect(() => {
     fetch("/technologies.json")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to load technologies data.");
+        }
+        return res.json();
+      })
       .then((data: Technology[]) => {
         setTechnologies(data);
         setLoading(false);
@@ -27,18 +37,19 @@ const App = () => {
   }, []);
 
   const handleAddToStack = (tech: Technology): void => {
-    const isAlreadyAdded = stack.some((item) => item.id === tech.id);
+    const isAlreadyAdded =
+      stack.find((item) => item.id === tech.id) !== undefined;
     if (isAlreadyAdded) {
       toast.warn(`${tech.name} is already added to your stack!`);
       return;
     }
-    setStack((prev) => [...prev, tech]);
+    setStack([...stack, tech]);
     toast.success(`${tech.name} added to your stack!`);
   };
 
   const handleRemove = (id: string): void => {
     const itemToRemove = stack.find((item) => item.id === id);
-    setStack((prev) => prev.filter((item) => item.id !== id));
+    setStack(stack.filter((item) => item.id !== id));
     if (itemToRemove) {
       toast.info(`${itemToRemove.name} removed from your stack.`);
     }
@@ -79,7 +90,7 @@ const App = () => {
                     <span>Loading technologies...</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
-                    {Array.from({ length: 6 }).map((_, index) => (
+                    {skeletonItems.map((_, index) => (
                       <TechCardSkeleton key={`skeleton-${index}`} />
                     ))}
                   </div>
@@ -91,7 +102,9 @@ const App = () => {
                       key={tech.id}
                       tech={tech}
                       onAdd={handleAddToStack}
-                      isAdded={stack.some((item) => item.id === tech.id)}
+                      isAdded={
+                        stack.find((item) => item.id === tech.id) !== undefined
+                      }
                     />
                   ))}
                 </div>

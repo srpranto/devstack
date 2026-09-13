@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import BrandLogo from "./BrandLogo";
 
 const footerSections = [
@@ -6,22 +7,13 @@ const footerSections = [
     links: [
       { label: "Home", href: "#home" },
       { label: "Technologies", href: "#technologies" },
-      { label: "Projects", href: "#technologies" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
-      { label: "Careers", href: "#contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of Service", href: "#terms" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
     ],
   },
 ] as const;
@@ -34,12 +26,9 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer
-      id="contact"
-      className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24"
-    >
+    <footer className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="sm:col-span-2 text-center sm:text-left">
             <BrandLogo className="justify-center sm:justify-start" />
             <p className="mt-4 text-xs text-slate-500 max-w-sm leading-relaxed mx-auto sm:mx-0">
@@ -48,7 +37,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center justify-center sm:justify-start gap-2.5 sm:gap-4 mt-6 text-xs text-slate-500 font-medium">
               {socialLinks.map((link, index) => (
-                <span key={link.label} className="contents">
+                <Fragment key={link.label}>
                   {index > 0 && (
                     <span className="sm:hidden text-slate-300">•</span>
                   )}
@@ -60,7 +49,7 @@ const Footer = () => {
                   >
                     {link.label}
                   </a>
-                </span>
+                </Fragment>
               ))}
             </div>
           </div>
@@ -83,13 +72,13 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="pt-8 mt-8 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2 sm:gap-4">
+        <div className="pt-8 mt-8 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 gap-2 sm:gap-4">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex justify-end gap-3 sm:gap-4 shrink-0">
-            <a href="#privacy" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet-600">
               Privacy
             </a>
-            <a href="#terms" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet-600">
               Terms
             </a>
           </div>

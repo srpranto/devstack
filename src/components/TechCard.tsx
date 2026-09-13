@@ -13,13 +13,7 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
     <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden">
       <div>
         <div className="flex items-start justify-between">
-          <img
-            src={icon}
-            alt={name}
-            loading="lazy"
-            decoding="async"
-            className="w-10 h-10 object-contain"
-          />
+          <img src={icon} alt={name} className="w-10 h-10 object-contain" />
           <span className="badge badge-sm border-slate-200 bg-slate-50 text-slate-600 font-medium shrink-0">
             {badge}
           </span>
@@ -31,7 +25,7 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
         </p>
 
         <div className="flex items-center justify-between gap-1.5 sm:gap-2 text-xs text-slate-500 mt-4 pt-3 border-t border-slate-100">
-          <span className="text-[11px] font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full shrink-0">
+          <span className="text-xs font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full shrink-0">
             {category}
           </span>
           <span className="truncate min-w-0 text-center" title={difficulty}>
@@ -46,7 +40,6 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
 
       <button
         type="button"
-        aria-disabled={isAdded}
         onClick={() => onAdd(tech)}
         className={`mt-4 w-full py-2.5 px-4 rounded-xl text-xs font-semibold border transition-colors ${
           isAdded

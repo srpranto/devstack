@@ -26,7 +26,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
         </div>
       ) : (
         <div className="mt-5">
-          <div className="flex flex-col gap-2.5 max-h-96 sm:max-h-120 lg:max-h-140 overflow-y-auto pr-1">
+          <div className="flex flex-col gap-2.5 max-h-96 lg:max-h-128 overflow-y-auto pr-1">
             {stack.map((item) => (
               <div
                 key={item.id}
@@ -36,8 +36,6 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
                   <img
                     src={item.icon}
                     alt={item.name}
-                    loading="lazy"
-                    decoding="async"
                     className="w-7 h-7 object-contain shrink-0"
                   />
                   <div className="min-w-0">
@@ -51,7 +49,6 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
                 </div>
                 <button
                   type="button"
-                  aria-label={`Remove ${item.name}`}
                   onClick={() => onRemove(item.id)}
                   className="shrink-0 ml-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg text-sm p-1 leading-none transition-colors cursor-pointer"
                 >
