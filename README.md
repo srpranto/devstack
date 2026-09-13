@@ -2,7 +2,7 @@
 
 A modern, responsive web application built with React, Vite, TypeScript, and Tailwind CSS. Dev Stack helps developers explore curated technologies across Frontend, Backend, Database, Languages, Styling, and DevOps to design and compare their ideal development stack.
 
-🔗 **Live Site:** [devstack-shahil.vercel.app](https://devstack-shahil.vercel.app)
+🔗 **Live Site:** <https://devstack-shahil.vercel.app>
 
 ---
 
