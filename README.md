@@ -46,7 +46,7 @@ A modern, responsive web application built with React, Vite, TypeScript, and Tai
 
 ### 3. What does the useState hook do, and where did you use it in this project?
 
-**Answer:** `useState` lets us create and update data inside a component. I used it in `App.tsx` for the technologies, selected stack, and loading state. I also used it in `Navbar.tsx` for the mobile menu.
+**Answer:** `useState` lets us create and update data inside a component. I used it in `App.tsx` for the technologies, selected stack, and loading state. I also used it in `Navbar.tsx` for the mobile menu state and active section tracking.
 
 ### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
 

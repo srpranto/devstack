@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
@@ -27,14 +27,9 @@ const App = () => {
       });
   }, []);
 
-  const addedIds = useMemo(
-    () => new Set(stack.map((item) => item.id)),
-    [stack],
-  );
-
   // add technology to stack
   const handleAddToStack = (tech: Technology): void => {
-    const isAlreadyAdded = addedIds.has(tech.id);
+    const isAlreadyAdded = stack.some((item) => item.id === tech.id);
     if (isAlreadyAdded) {
       toast.warn(`${tech.name} is already added to your stack!`);
       return;
@@ -65,7 +60,7 @@ const App = () => {
       <main className="flex-1">
         <Hero />
 
-        {/* technology starts here */}
+        {/* Technologies Section */}
         <section
           id="technologies"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
@@ -101,14 +96,14 @@ const App = () => {
                       key={tech.id}
                       tech={tech}
                       onAdd={handleAddToStack}
-                      isAdded={addedIds.has(tech.id)}
+                      isAdded={stack.some((item) => item.id === tech.id)}
                     />
                   ))}
                 </div>
               )}
             </div>
 
-            {/* selected stack sidebar */}
+            {/* Selected Stack Sidebar */}
             <div className="w-full lg:w-80 shrink-0">
               <YourStack
                 stack={stack}

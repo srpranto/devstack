@@ -36,6 +36,8 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
                   <img
                     src={item.icon}
                     alt={item.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-7 h-7 object-contain shrink-0"
                   />
                   <div className="min-w-0">

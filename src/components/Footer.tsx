@@ -24,6 +24,12 @@ const footerSections = [
   },
 ] as const;
 
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com" },
+  { label: "Twitter", href: "https://twitter.com" },
+  { label: "LinkedIn", href: "https://linkedin.com" },
+] as const;
+
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24">
@@ -46,32 +52,21 @@ const Footer = () => {
               big modern software.
             </p>
             <div className="flex items-center justify-center sm:justify-start gap-2.5 sm:gap-4 mt-6 text-xs text-slate-500 font-medium">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="hover:text-violet-600"
-              >
-                GitHub
-              </a>
-              <span className="sm:hidden text-slate-300">•</span>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="hover:text-violet-600"
-              >
-                Twitter
-              </a>
-              <span className="sm:hidden text-slate-300">•</span>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="hover:text-violet-600"
-              >
-                LinkedIn
-              </a>
+              {socialLinks.map((link, index) => (
+                <span key={link.label} className="contents">
+                  {index > 0 && (
+                    <span className="sm:hidden text-slate-300">•</span>
+                  )}
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="hover:text-violet-600"
+                  >
+                    {link.label}
+                  </a>
+                </span>
+              ))}
             </div>
           </div>
 

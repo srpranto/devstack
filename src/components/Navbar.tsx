@@ -15,18 +15,22 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
+    // Cache only the section elements that actually exist in the DOM
+    const sectionElements = navItems
+      .map((item) => document.getElementById(item.toLowerCase()))
+      .filter((el): el is HTMLElement => Boolean(el));
+
     let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const sectionIds = navItems.map((item) => item.toLowerCase());
           const scrollPosition = window.scrollY + 140;
 
-          for (let i = sectionIds.length - 1; i >= 0; i--) {
-            const el = document.getElementById(sectionIds[i]);
-            if (el && el.offsetTop <= scrollPosition) {
-              setActiveSection(sectionIds[i]);
+          for (let i = sectionElements.length - 1; i >= 0; i--) {
+            const el = sectionElements[i];
+            if (el.offsetTop <= scrollPosition) {
+              setActiveSection(el.id);
               ticking = false;
               return;
             }

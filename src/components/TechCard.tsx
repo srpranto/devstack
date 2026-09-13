@@ -13,7 +13,13 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
     <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden">
       <div>
         <div className="flex items-start justify-between">
-          <img src={icon} alt={name} className="w-10 h-10 object-contain" />
+          <img
+            src={icon}
+            alt={name}
+            loading="lazy"
+            decoding="async"
+            className="w-10 h-10 object-contain"
+          />
           <span className="badge badge-sm border-slate-200 bg-slate-50 text-slate-600 font-medium shrink-0">
             {badge}
           </span>
