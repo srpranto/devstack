@@ -1,10 +1,20 @@
+export type TechCategory =
+  | "Frontend"
+  | "Backend"
+  | "Database"
+  | "Language"
+  | "Styling"
+  | "DevOps";
+
+export type TechDifficulty = "Beginner-Friendly" | "Intermediate" | "Advanced";
+
 export interface Technology {
-  id: string;
+  readonly id: string;
   name: string;
-  category: string;
+  category: TechCategory;
   description: string;
   icon: string;
   rating: number;
-  difficulty: string;
-  badge: string;
+  difficulty: TechDifficulty;
+  badge?: string;
 }
