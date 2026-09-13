@@ -7,6 +7,15 @@ const footerSections = [
     links: [
       { label: "Home", href: "#home" },
       { label: "Technologies", href: "#technologies" },
+      { label: "Projects", href: "#" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#" },
+      { label: "Contact", href: "#" },
+      { label: "Careers", href: "#" },
     ],
   },
   {
@@ -28,8 +37,8 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="sm:col-span-2 text-center sm:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+          <div className="sm:col-span-2 md:col-span-2 text-center sm:text-left">
             <BrandLogo className="justify-center sm:justify-start" />
             <p className="mt-4 text-xs text-slate-500 max-w-sm leading-relaxed mx-auto sm:mx-0">
               Curated tools, technologies, and resources to develop and build
