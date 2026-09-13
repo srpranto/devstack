@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
   "Home",
@@ -10,8 +10,74 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sectionIds = navItems.map((item) => item.toLowerCase());
+          const scrollPosition = window.scrollY + 140;
+
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sectionIds[i]);
+            if (el && el.offsetTop <= scrollPosition) {
+              setActiveSection(sectionIds[i]);
+              ticking = false;
+              return;
+            }
+          }
+          setActiveSection("home");
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const renderNavLinks = () =>
+    navItems.map((item) => {
+      const isActive = activeSection === item.toLowerCase();
+      return (
+        <li key={item}>
+          <a
+            href={`#${item.toLowerCase()}`}
+            onClick={() => {
+              setActiveSection(item.toLowerCase());
+              closeMenu();
+            }}
+            className="relative inline-block font-semibold py-1 transition-colors duration-300"
+          >
+            <span
+              className={`transition-colors duration-300 ${
+                isActive
+                  ? "text-transparent"
+                  : "text-slate-600 hover:text-violet-600"
+              }`}
+            >
+              {item}
+            </span>
+            <span
+              aria-hidden="true"
+              className={`absolute inset-0 py-1 brand-gradient-text pointer-events-none transition-opacity duration-300 ease-out ${
+                isActive ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              {item}
+            </span>
+          </a>
+        </li>
+      );
+    });
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
@@ -45,6 +111,7 @@ const Navbar = () => {
           <div className="flex items-center justify-center shrink-0">
             <a
               href="#home"
+              onClick={() => setActiveSection("home")}
               className="flex items-center gap-1.5 sm:gap-2 shrink-0"
             >
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-[10px] sm:text-sm shadow-xs">
@@ -57,17 +124,7 @@ const Navbar = () => {
           </div>
 
           <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 lg:gap-8 text-xs lg:text-sm">
-            {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={closeMenu}
-                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            {renderNavLinks()}
           </ul>
 
           <div className="flex items-center justify-end gap-1 sm:gap-3 flex-1 md:flex-none z-10">
@@ -90,17 +147,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden border-t border-slate-100 bg-white px-4 py-3 shadow-lg">
           <ul className="flex flex-col gap-2.5 text-sm text-center">
-            {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={closeMenu}
-                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            {renderNavLinks()}
           </ul>
         </div>
       )}

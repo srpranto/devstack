@@ -20,13 +20,13 @@ const Hero = () => {
           <div className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <a
               href="#technologies"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center text-white brand-gradient border border-transparent font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 shadow-sm hover:opacity-95 transition-opacity whitespace-nowrap"
+              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center text-white brand-gradient font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 shadow-md shadow-violet-500/25 hover:shadow-lg hover:shadow-violet-500/35 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ease-out whitespace-nowrap cursor-pointer"
             >
               Explore Technologies
             </a>
             <a
               href="#about"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center bg-white border border-slate-200 text-slate-700 font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:bg-slate-50 transition-colors whitespace-nowrap"
+              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center bg-white border border-slate-200 text-slate-700 font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ease-out whitespace-nowrap cursor-pointer"
             >
               Learn More
             </a>

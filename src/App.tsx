@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
@@ -27,7 +27,10 @@ const App = () => {
       });
   }, []);
 
-  const addedIds = new Set(stack.map((item) => item.id));
+  const addedIds = useMemo(
+    () => new Set(stack.map((item) => item.id)),
+    [stack],
+  );
 
   // add technology to stack
   const handleAddToStack = (tech: Technology): void => {
