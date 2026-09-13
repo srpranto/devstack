@@ -1,11 +1,17 @@
 import { useState } from "react";
 
+const navItems = [
+  "Home",
+  "Technologies",
+  "Projects",
+  "About",
+  "Contact",
+] as const;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
-
-  const navItems = ["Home", "Technologies", "Projects", "About", "Contact"];
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">

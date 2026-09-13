@@ -1,3 +1,29 @@
+const footerSections = [
+  {
+    title: "Product",
+    links: [
+      { label: "Home", href: "#home" },
+      { label: "Technologies", href: "#technologies" },
+      { label: "Projects", href: "#projects" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#about" },
+      { label: "Contact", href: "#contact" },
+      { label: "Careers", href: "#careers" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "#privacy" },
+      { label: "Terms of Service", href: "#terms" },
+    ],
+  },
+] as const;
+
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24">
@@ -49,31 +75,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {[
-            {
-              title: "Product",
-              links: [
-                { label: "Home", href: "#home" },
-                { label: "Technologies", href: "#technologies" },
-                { label: "Projects", href: "#projects" },
-              ],
-            },
-            {
-              title: "Company",
-              links: [
-                { label: "About", href: "#about" },
-                { label: "Contact", href: "#contact" },
-                { label: "Careers", href: "#careers" },
-              ],
-            },
-            {
-              title: "Legal",
-              links: [
-                { label: "Privacy Policy", href: "#privacy" },
-                { label: "Terms of Service", href: "#terms" },
-              ],
-            },
-          ].map((section) => (
+          {footerSections.map((section) => (
             <div key={section.title} className="hidden sm:block">
               <h4 className="font-bold text-xs text-slate-900 tracking-wider uppercase mb-3">
                 {section.title}

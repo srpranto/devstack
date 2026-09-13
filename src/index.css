@@ -1,8 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+  --font-sans: Inter, sans-serif;
+}
+
 :root {
-  font-family: Inter, "Segoe UI", sans-serif;
   --brand-gradient: linear-gradient(
     135deg,
     #22d3ee 0%,
@@ -14,7 +17,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  overflow-y: scroll;
   scrollbar-gutter: stable;
 }
 

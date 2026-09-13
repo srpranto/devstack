@@ -56,7 +56,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen text-slate-900 flex flex-col">
       <Navbar />
 
       <main className="flex-1">
@@ -85,14 +85,14 @@ const App = () => {
                     <span className="loading loading-spinner loading-xs text-violet-600"></span>
                     <span>Loading technologies...</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                     {Array.from({ length: 6 }).map((_, index) => (
                       <TechCardSkeleton key={index} />
                     ))}
                   </div>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                   {technologies.map((tech) => (
                     <TechCard
                       key={tech.id}
