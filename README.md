@@ -1,12 +1,10 @@
 # Dev Stack
 
-A small project for exploring different technologies and putting together a custom development stack.
+Dev Stack is an interactive web app for exploring different technologies and building a custom tech stack. You can browse technologies from Frontend, Backend, Database, Languages, Styling, and DevOps, check their ratings and difficulty, and add the ones you want to your own stack.
 
-You can look through Frontend, Backend, Database, Languages, Styling, and DevOps technologies, check their ratings and difficulty, and add the ones you want to your own stack.
+🔗 **Live Site:** [https://devstack-shahil.vercel.app](https://devstack-shahil.vercel.app/)
 
-🔗 [Live Site](https://devstack-shahil.vercel.app)
-
-## What I used
+## 🛠️ Technologies Used
 
 - React 19
 - TypeScript
@@ -14,67 +12,165 @@ You can look through Frontend, Backend, Database, Languages, Styling, and DevOps
 - Tailwind CSS v4
 - daisyUI v5
 - React Toastify
+- Local JSON data (`/technologies.json`)
 - [TechIcons](https://techicons.dev/)
-- Local JSON data from `/technologies.json`
 
-## Things you can do
+## 🚀 Key Features
 
-**Explore technologies**
+### Dynamic Technology Catalog
 
-The app loads the technology data from the JSON file and shows useful details like category, rating, and difficulty.
+The app loads technology data from `/technologies.json` when it starts. Each technology shows details such as its category, rating, and difficulty level.
 
-**Build a stack**
+### Build Your Own Stack
 
-Pick the technologies you want and add them to **Your Stack**. You can remove them one by one or clear the whole stack. Trying to add something twice shows a notification instead.
+You can add technologies to **Your Stack**, remove them one by one, or clear the whole stack. The app also checks for duplicate technologies and shows a notification if you try to add one again.
 
-**Use it on different screens**
+### Responsive and Interactive UI
 
-The layout is responsive, so the app works on mobile, tablet, and desktop. There are also toast notifications and smooth scrolling for a few interactions.
+The layout works across mobile, tablet, and desktop screens. It also includes smooth scrolling and React Toastify notifications for different actions.
 
-## React questions
+## 💡 React Core Questions & Answers
 
-### 1. JSX
+### 1. What is JSX, and why is it used in React?
 
-JSX lets us write HTML like elements inside JavaScript. I find it easier to read than creating the same UI with plain JavaScript.
+JSX is basically what lets me write HTML like code inside my JavaScript or TypeScript. I use it in my React components because it feels much easier to build and read the UI this way.
 
-### 2. Props and state
+For example, this is JSX from `TechCard.tsx`:
 
-Props come from a parent component and are mainly used to pass data down.
+```tsx
+<h3 className="text-base font-bold text-slate-900 mt-4">{name}</h3>
+```
 
-State belongs to the component itself and can change while the app is running.
+Here, `{name}` is a JavaScript value being used directly inside the JSX.
 
-### 3. `useState`
+---
 
-`useState` is what I used whenever the UI needed to remember something that could change.
+### 2. What is the difference between props and state?
 
-In this project, `App.tsx` uses it for the technology list, selected stack, and loading state. `Navbar.tsx` uses it for the mobile menu.
+The easiest way I understood this is that props are used to pass something into a component, while state is used when the component needs to keep track of something that can change.
 
-### 4. `useEffect`
+In my project, `tech` is passed to `TechCard` as a prop. The `stack`, on the other hand, is kept as state inside `App.tsx`.
 
-`useEffect` is useful for work that should happen after rendering.
+| Props                                 | State                      |
+| :------------------------------------ | :------------------------- |
+| Passed from a parent                  | Managed inside a component |
+| Used to pass data                     | Used for changing data     |
+| The child does not directly change it | Updated with a setter      |
 
-I used it in `App.tsx` to fetch `/technologies.json` when the app loads. Without it, I would be trying to fetch the data as part of the normal render.
+---
 
-### 5. Why `key` in `.map()`?
+### 3. What does the `useState` hook do, and where did you use it in this project?
 
-React needs a way to tell list items apart. A unique `key` helps it understand which item changed, was added, or was removed.
+I use `useState` when I need React to remember a value and update the UI when that value changes.
 
-### 6. Conditional rendering
+In `App.tsx`, I used it for the technology list, the user's selected stack, and the loading state:
 
-It simply means showing something only when a certain condition is true.
+```tsx
+const [technologies, setTechnologies] = useState<Technology[]>([]);
+const [stack, setStack] = useState<Technology[]>([]);
+const [loading, setLoading] = useState(true);
+```
 
-For example, in `YourStack.tsx`, an empty stack shows:
+I also used it in `Navbar.tsx` for the mobile menu:
 
-> Your stack is empty.
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+```
 
-Once something is added, that message is replaced by the selected technologies.
+So when the user adds something to the stack, or opens the mobile menu, the state changes and React updates that part of the UI.
 
-### 7. Parent and child components
+---
 
-A parent can send data to a child through props.
+### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
 
-For the other direction, the parent can give the child a function. The child calls that function when something happens. In my project, `App.tsx` passes data and functions to components such as `TechCard.tsx`.
+I think of `useEffect` as a way to run something after React renders. In this project, I needed it because the technology data has to be fetched from the JSON file when the app starts.
 
-## A few things I learned
+```tsx
+useEffect(() => {
+  fetch("/technologies.json")
+    .then((res) => res.json())
+    .then((data: Technology[]) => {
+      setTechnologies(data);
+      setLoading(false);
+    })
+    .catch(() => {
+      setLoading(false);
+      toast.error("Failed to load technologies data.");
+    });
+}, []);
+```
 
-This project helped me get more comfortable with React state, props, hooks, component communication, fetching JSON data, and handling UI changes based on state.
+The `[]` tells React that this effect does not depend on any changing value, so it runs when the component first mounts. I would not put the `fetch()` directly inside the component body because that would run during renders.
+
+---
+
+### 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+The key is how React keeps track of the items in a list. When something changes, React can use the key to figure out which item was added, removed, or changed.
+
+In my project, every technology already has a unique `id`, so I use that:
+
+```tsx
+{
+  technologies.map((tech) => (
+    <TechCard
+      key={tech.id}
+      tech={tech}
+      onAdd={handleAddToStack}
+      isAdded={stack.find((item) => item.id === tech.id) !== undefined}
+    />
+  ));
+}
+```
+
+Using a proper key also helps React keep the correct item identity when the list updates.
+
+---
+
+### 6. What is conditional rendering? Show one place you used it (example: the empty stack message).
+
+For me, conditional rendering means showing different parts of the UI depending on what is happening.
+
+I used it in `YourStack.tsx`. When the user has not added anything yet, I show the empty stack message:
+
+```tsx
+{stack.length === 0 ? (
+  <div>
+    <span>Your stack is empty.</span>
+  </div>
+) : (
+  <div>
+    {stack.map((item) => (
+      // selected technologies
+    ))}
+  </div>
+)}
+```
+
+So basically, an empty stack shows "Your stack is empty." and once something is added, that message is replaced with the selected technologies.
+
+---
+
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+I pass data from the parent to the child using props. In my project, `App.tsx` gives `TechCard.tsx` the technology data and also a function for adding that technology to the stack.
+
+```tsx
+const handleAddToStack = (tech: Technology) => {
+  setStack([...stack, tech]);
+};
+
+<TechCard
+  tech={tech}
+  onAdd={handleAddToStack}
+  isAdded={...}
+/>
+```
+
+Then `TechCard` can call the function when the user clicks the button:
+
+```tsx
+<button onClick={() => onAdd(tech)}>Add to Stack</button>
+```
+
+So the parent sends the data and function down through props, and the child can communicate back by calling that function.
