@@ -78,21 +78,21 @@ const App = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
-            <div className="w-full lg:flex-1">
+            <div className="w-full lg:flex-1 min-w-0">
               {loading ? (
                 <div>
                   <div className="flex items-center gap-2.5 mb-5 px-3.5 py-2.5 bg-violet-50/70 border border-violet-100 rounded-xl text-violet-700 text-xs font-medium w-fit">
                     <span className="loading loading-spinner loading-xs text-violet-600"></span>
                     <span>Loading technologies...</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                     {Array.from({ length: 6 }).map((_, index) => (
                       <TechCardSkeleton key={index} />
                     ))}
                   </div>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                   {technologies.map((tech) => (
                     <TechCard
                       key={tech.id}

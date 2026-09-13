@@ -22,9 +22,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
 
       {isEmpty ? (
         <div className="border border-dashed border-slate-200 rounded-xl py-5 sm:py-6 px-4 flex items-center justify-center mt-4">
-          <span className="text-slate-400 text-xs font-normal">
-            Your stack is empty.
-          </span>
+          <span className="text-slate-400 text-xs">Your stack is empty.</span>
         </div>
       ) : (
         <div className="mt-5">
@@ -53,7 +51,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
                   type="button"
                   aria-label={`Remove ${item.name}`}
                   onClick={() => onRemove(item.id)}
-                  className="text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg text-sm p-1 leading-none transition-colors cursor-pointer"
+                  className="shrink-0 ml-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg text-sm p-1 leading-none transition-colors cursor-pointer"
                 >
                   ✕
                 </button>

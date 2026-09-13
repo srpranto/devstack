@@ -41,7 +41,7 @@ const Navbar = () => {
               href="#home"
               className="flex items-center gap-1.5 sm:gap-2 shrink-0"
             >
-              <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-[10px] sm:text-sm shadow-xs shrink-0">
+              <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-[10px] sm:text-sm shadow-xs">
                 DS
               </span>
               <span className="text-xs sm:text-xl font-bold tracking-tight text-slate-900 whitespace-nowrap">
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   onClick={closeMenu}
-                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
+                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block"
                 >
                   {item}
                 </a>
@@ -89,7 +89,7 @@ const Navbar = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   onClick={closeMenu}
-                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1 md:py-0"
+                  className="text-slate-600 hover:text-violet-600 font-medium transition-colors block py-1"
                 >
                   {item}
                 </a>

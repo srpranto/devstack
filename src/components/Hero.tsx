@@ -20,13 +20,13 @@ const Hero = () => {
           <div className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <a
               href="#technologies"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center text-white brand-gradient border border-transparent font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 shadow-sm hover:opacity-95 transition-opacity text-center whitespace-nowrap"
+              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center text-white brand-gradient border border-transparent font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 shadow-sm hover:opacity-95 transition-opacity whitespace-nowrap"
             >
               Explore Technologies
             </a>
             <a
               href="#about"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center bg-white border border-slate-200 text-slate-700 font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:bg-slate-50 transition-colors text-center whitespace-nowrap"
+              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center bg-white border border-slate-200 text-slate-700 font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:bg-slate-50 transition-colors whitespace-nowrap"
             >
               Learn More
             </a>

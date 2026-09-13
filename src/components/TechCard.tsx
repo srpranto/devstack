@@ -10,11 +10,11 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
   const { name, category, description, icon, rating, difficulty, badge } = tech;
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out flex flex-col justify-between">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden">
       <div>
         <div className="flex items-start justify-between">
           <img src={icon} alt={name} className="w-10 h-10 object-contain" />
-          <span className="badge badge-sm border-slate-200 bg-slate-50 text-slate-600 font-medium">
+          <span className="badge badge-sm border-slate-200 bg-slate-50 text-slate-600 font-medium shrink-0">
             {badge}
           </span>
         </div>
@@ -24,13 +24,15 @@ const TechCard = ({ tech, onAdd, isAdded }: TechCardProps) => {
           {description}
         </p>
 
-        <div className="flex items-center justify-between text-xs text-slate-500 mt-4 pt-3 border-t border-slate-100">
-          <span className="text-[11px] font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 text-xs text-slate-500 mt-4 pt-3 border-t border-slate-100">
+          <span className="text-[11px] font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full shrink-0">
             {category}
           </span>
-          <span>{difficulty}</span>
-          <div className="flex items-center gap-1 font-semibold text-slate-700">
-            <span className="text-amber-500">★</span>
+          <span className="truncate min-w-0 text-center" title={difficulty}>
+            {difficulty}
+          </span>
+          <div className="flex items-center gap-1 font-semibold text-slate-700 shrink-0 whitespace-nowrap">
+            <span className="text-amber-500 leading-none">★</span>
             <span>{rating}</span>
           </div>
         </div>

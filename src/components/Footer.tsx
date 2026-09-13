@@ -23,7 +23,7 @@ const Footer = () => {
               <a
                 href="https://github.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="hover:text-violet-600"
               >
                 GitHub
@@ -32,7 +32,7 @@ const Footer = () => {
               <a
                 href="https://twitter.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="hover:text-violet-600"
               >
                 Twitter
@@ -41,7 +41,7 @@ const Footer = () => {
               <a
                 href="https://linkedin.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="hover:text-violet-600"
               >
                 LinkedIn
@@ -49,69 +49,46 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="hidden sm:block">
-            <h4 className="font-bold text-xs text-slate-900 tracking-wider uppercase mb-3">
-              Product
-            </h4>
-            <ul className="flex flex-col gap-2 text-xs text-slate-500">
-              <li>
-                <a href="#home" className="hover:text-violet-600">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#technologies" className="hover:text-violet-600">
-                  Technologies
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-violet-600">
-                  Projects
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="hidden sm:block">
-            <h4 className="font-bold text-xs text-slate-900 tracking-wider uppercase mb-3">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-2 text-xs text-slate-500">
-              <li>
-                <a href="#about" className="hover:text-violet-600">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-violet-600">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="hover:text-violet-600">
-                  Careers
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="hidden sm:block">
-            <h4 className="font-bold text-xs text-slate-900 tracking-wider uppercase mb-3">
-              Legal
-            </h4>
-            <ul className="flex flex-col gap-2 text-xs text-slate-500">
-              <li>
-                <a href="#privacy" className="hover:text-violet-600">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#terms" className="hover:text-violet-600">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
+          {[
+            {
+              title: "Product",
+              links: [
+                { label: "Home", href: "#home" },
+                { label: "Technologies", href: "#technologies" },
+                { label: "Projects", href: "#projects" },
+              ],
+            },
+            {
+              title: "Company",
+              links: [
+                { label: "About", href: "#about" },
+                { label: "Contact", href: "#contact" },
+                { label: "Careers", href: "#careers" },
+              ],
+            },
+            {
+              title: "Legal",
+              links: [
+                { label: "Privacy Policy", href: "#privacy" },
+                { label: "Terms of Service", href: "#terms" },
+              ],
+            },
+          ].map((section) => (
+            <div key={section.title} className="hidden sm:block">
+              <h4 className="font-bold text-xs text-slate-900 tracking-wider uppercase mb-3">
+                {section.title}
+              </h4>
+              <ul className="flex flex-col gap-2 text-xs text-slate-500">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="hover:text-violet-600">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="pt-8 mt-8 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2 sm:gap-4">
