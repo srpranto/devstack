@@ -10,7 +10,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
   const isEmpty = stack.length === 0;
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm lg:sticky lg:top-20">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm md:sticky md:top-20">
       <div>
         <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
         <p className="text-xs text-slate-500 mt-1">
@@ -26,7 +26,7 @@ const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
         </div>
       ) : (
         <div className="mt-5">
-          <div className="flex flex-col gap-2.5 max-h-96 lg:max-h-128 overflow-y-auto pr-1">
+          <div className="flex flex-col gap-2.5 max-h-96 md:max-h-128 overflow-y-auto pr-1">
             {stack.map((item) => (
               <div
                 key={item.id}
