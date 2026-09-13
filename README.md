@@ -1,65 +1,80 @@
 # Dev Stack
 
-A modern, responsive web application built with React, Vite, TypeScript, and Tailwind CSS. Dev Stack helps developers explore curated technologies across Frontend, Backend, Database, Languages, Styling, and DevOps to design and compare their ideal development stack.
+A small project for exploring different technologies and putting together a custom development stack.
 
-🔗 **Live Site:** <https://devstack-shahil.vercel.app>
+You can look through Frontend, Backend, Database, Languages, Styling, and DevOps technologies, check their ratings and difficulty, and add the ones you want to your own stack.
 
----
+🔗 [Live Site](https://devstack-shahil.vercel.app)
 
-## 🛠️ Technologies Used
+## What I used
 
-- **Framework:** React 19
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4 & daisyUI v5
-- **Notifications:** React-Toastify
-- **Build Tool:** Vite 8
-- **Data Source:** Dynamic JSON (`/technologies.json`)
-- **Icons:** [TechIcons](https://techicons.dev/)
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS v4
+- daisyUI v5
+- React Toastify
+- [TechIcons](https://techicons.dev/)
+- Local JSON data from `/technologies.json`
 
----
+## Things you can do
 
-## 🚀 Key Features
+**Explore technologies**
 
-1. **Dynamic Technology Catalog**
-   - 12 real-world technologies fetched dynamically via `useEffect` from a local JSON endpoint, displaying category chips, ratings, and difficulty badges.
+The app loads the technology data from the JSON file and shows useful details like category, rating, and difficulty.
 
-2. **Interactive "Your Stack" Builder with Validation**
-   - Select technologies to assemble a custom stack in a dedicated sidebar.
-   - Built-in duplicate prevention alerts users if a technology has already been chosen.
-   - Remove individual technologies or clear the entire stack with a single click.
+**Build a stack**
 
-3. **Smooth, Responsive UI with Aesthetic Notifications**
-   - Pixel-perfect layout inspired by modern design standards, responsive across mobile, tablet, and desktop screens.
-   - Custom-themed React-Toastify alerts utilizing a unified brand gradient (`#22d3ee` → `#8b5cf6` → `#ec4899`) with smooth slide transitions and in-page anchor scrolling.
+Pick the technologies you want and add them to **Your Stack**. You can remove them one by one or clear the whole stack. Trying to add something twice shows a notification instead.
 
----
+**Use it on different screens**
 
-## 💡 React Core Questions & Answers
+The layout is responsive, so the app works on mobile, tablet, and desktop. There are also toast notifications and smooth scrolling for a few interactions.
 
-### 1. What is JSX, and why is it used in React?
+## React questions
 
-**Answer:** JSX lets us write HTML-like code inside JavaScript. We use it in React because it makes the UI code easier to write and understand.
+### 1. JSX
 
-### 2. What is the difference between props and state?
+JSX lets us write HTML like elements inside JavaScript. I find it easier to read than creating the same UI with plain JavaScript.
 
-**Answer:** Props are data passed from a parent component to a child component. State is data that a component manages and can change when something happens.
+### 2. Props and state
 
-### 3. What does the useState hook do, and where did you use it in this project?
+Props come from a parent component and are mainly used to pass data down.
 
-**Answer:** `useState` lets us create and update data inside a component. I used it in `App.tsx` for the technologies, selected stack, and loading state. I also used it in `Navbar.tsx` for the mobile menu open/closed state.
+State belongs to the component itself and can change while the app is running.
 
-### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
+### 3. `useState`
 
-**Answer:** `useEffect` is used when we need to do something after the component renders. I used it in `App.tsx` to load the technology data from the JSON file when the app starts.
+`useState` is what I used whenever the UI needed to remember something that could change.
 
-### 5. Why does every item in a .map() list need a unique key prop?
+In this project, `App.tsx` uses it for the technology list, selected stack, and loading state. `Navbar.tsx` uses it for the mobile menu.
 
-**Answer:** React uses the key to know which item is which when the list changes. A unique key helps React update the right item without unnecessary changes.
+### 4. `useEffect`
 
-### 6. What is conditional rendering? Show one place you used it.
+`useEffect` is useful for work that should happen after rendering.
 
-**Answer:** Conditional rendering means showing different UI based on a condition. In this project, I used it in `YourStack.tsx`. When the stack is empty, it shows "Your stack is empty." Otherwise, it shows the selected technologies.
+I used it in `App.tsx` to fetch `/technologies.json` when the app loads. Without it, I would be trying to fetch the data as part of the normal render.
 
-### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+### 5. Why `key` in `.map()`?
 
-**Answer:** A parent sends data to a child through props. A child can send something back by calling a function that the parent passed as a prop. In this project, `App.tsx` passes data and functions to components like `TechCard.tsx`.
+React needs a way to tell list items apart. A unique `key` helps it understand which item changed, was added, or was removed.
+
+### 6. Conditional rendering
+
+It simply means showing something only when a certain condition is true.
+
+For example, in `YourStack.tsx`, an empty stack shows:
+
+> Your stack is empty.
+
+Once something is added, that message is replaced by the selected technologies.
+
+### 7. Parent and child components
+
+A parent can send data to a child through props.
+
+For the other direction, the parent can give the child a function. The child calls that function when something happens. In my project, `App.tsx` passes data and functions to components such as `TechCard.tsx`.
+
+## A few things I learned
+
+This project helped me get more comfortable with React state, props, hooks, component communication, fetching JSON data, and handling UI changes based on state.
