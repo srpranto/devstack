@@ -1,87 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import BrandLogo from "./BrandLogo";
 
 const navItems = [
-  "Home",
-  "Technologies",
-  "Projects",
-  "About",
-  "Contact",
-] as const;
+  { label: "Home", href: "#home" },
+  { label: "Technologies", href: "#technologies" },
+  { label: "Projects", href: "#technologies" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
   const closeMenu = () => setIsOpen(false);
 
-  useEffect(() => {
-    // Cache only the section elements that actually exist in the DOM
-    const sectionElements = navItems
-      .map((item) => document.getElementById(item.toLowerCase()))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollPosition = window.scrollY + 140;
-
-          for (let i = sectionElements.length - 1; i >= 0; i--) {
-            const el = sectionElements[i];
-            if (el.offsetTop <= scrollPosition) {
-              setActiveSection(el.id);
-              ticking = false;
-              return;
-            }
-          }
-          setActiveSection("home");
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const renderNavLinks = () =>
-    navItems.map((item) => {
-      const isActive = activeSection === item.toLowerCase();
-      return (
-        <li key={item}>
-          <a
-            href={`#${item.toLowerCase()}`}
-            onClick={() => {
-              setActiveSection(item.toLowerCase());
-              closeMenu();
-            }}
-            className="relative inline-block font-semibold py-1 transition-colors duration-300"
-          >
-            <span
-              className={`transition-colors duration-300 ${
-                isActive
-                  ? "text-transparent"
-                  : "text-slate-600 hover:text-violet-600"
-              }`}
-            >
-              {item}
-            </span>
-            <span
-              aria-hidden="true"
-              className={`absolute inset-0 py-1 brand-gradient-text pointer-events-none transition-opacity duration-300 ease-out ${
-                isActive ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {item}
-            </span>
-          </a>
-        </li>
-      );
-    });
+    navItems.map((item) => (
+      <li key={item.label}>
+        <a
+          href={item.href}
+          onClick={closeMenu}
+          className={`inline-block font-semibold py-1 transition-colors duration-200 ${
+            item.label === "Home"
+              ? "brand-gradient-text"
+              : "text-slate-600 hover:text-violet-600"
+          }`}
+        >
+          {item.label}
+        </a>
+      </li>
+    ));
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
@@ -113,18 +61,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center justify-center shrink-0">
-            <a
-              href="#home"
-              onClick={() => setActiveSection("home")}
-              className="flex items-center gap-1.5 sm:gap-2 shrink-0"
-            >
-              <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-[10px] sm:text-sm shadow-xs">
-                DS
-              </span>
-              <span className="text-xs sm:text-xl font-bold tracking-tight text-slate-900 whitespace-nowrap">
-                Dev <span className="brand-gradient-text">Stack</span>
-              </span>
-            </a>
+            <BrandLogo />
           </div>
 
           <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 lg:gap-8 text-xs lg:text-sm">

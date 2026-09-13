@@ -1,5 +1,8 @@
 import bannerStack from "../assets/banner-stack.png";
 
+const buttonBaseClass =
+  "flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ease-out whitespace-nowrap cursor-pointer";
+
 const Hero = () => {
   return (
     <section
@@ -7,7 +10,10 @@ const Hero = () => {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 lg:pt-4 pb-8 sm:pb-10 lg:pb-12"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+        <div
+          id="about"
+          className="max-w-xl text-center lg:text-left mx-auto lg:mx-0"
+        >
           <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
             Build Your Ideal <br className="hidden sm:inline" />
             <span className="brand-gradient-text">Development Stack</span>
@@ -20,13 +26,13 @@ const Hero = () => {
           <div className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <a
               href="#technologies"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center text-white brand-gradient font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 shadow-md shadow-violet-500/25 hover:shadow-lg hover:shadow-violet-500/35 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ease-out whitespace-nowrap cursor-pointer"
+              className={`${buttonBaseClass} text-white brand-gradient shadow-md shadow-violet-500/25 hover:shadow-lg hover:shadow-violet-500/35`}
             >
               Explore Technologies
             </a>
             <a
               href="#about"
-              className="flex-1 sm:flex-none sm:w-48 max-w-48 h-10 sm:h-11 inline-flex items-center justify-center bg-white border border-slate-200 text-slate-700 font-medium text-[11px] min-[360px]:text-xs sm:text-sm rounded-lg px-2 min-[360px]:px-4 sm:px-6 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ease-out whitespace-nowrap cursor-pointer"
+              className={`${buttonBaseClass} bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm`}
             >
               Learn More
             </a>

@@ -4,7 +4,7 @@
     "name": "React",
     "category": "Frontend",
     "description": "A declarative, component-based JavaScript library for building modern user interfaces.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/React-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/React.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Popular"
@@ -14,7 +14,7 @@
     "name": "Vue.js",
     "category": "Frontend",
     "description": "An approachable, performant, and versatile framework for building web user interfaces.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/VueJS-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Vue.js.svg",
     "rating": 4.8,
     "difficulty": "Beginner-Friendly",
     "badge": "Versatile"
@@ -24,7 +24,7 @@
     "name": "Svelte",
     "category": "Frontend",
     "description": "Cybernetically enhanced web apps with compile-time reactivity and zero runtime overhead.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Svelte.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Svelte.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Fast"
@@ -34,7 +34,7 @@
     "name": "Next.js",
     "category": "Frontend",
     "description": "The React framework for full-stack web applications with hybrid static & server rendering.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/NextJS-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Next.js.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Fullstack"
@@ -44,7 +44,7 @@
     "name": "Node.js",
     "category": "Backend",
     "description": "An asynchronous event-driven JavaScript runtime built on Chrome's V8 engine.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/NodeJS-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Node.js.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Standard"
@@ -54,7 +54,7 @@
     "name": "PostgreSQL",
     "category": "Database",
     "description": "A powerful, open-source object-relational database system with proven reliability.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/PostgreSQL-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/PostgresSQL.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Top SQL"
@@ -64,7 +64,7 @@
     "name": "Redis",
     "category": "Database",
     "description": "In-memory data structure store used as a high-speed database, cache, and message broker.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Redis-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Redis.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Cache"
@@ -74,7 +74,7 @@
     "name": "JavaScript",
     "category": "Language",
     "description": "The versatile, lightweight scripting language powering dynamic behavior across the web.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/JavaScript.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/JavaScript.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Ubiquitous"
@@ -84,7 +84,7 @@
     "name": "TypeScript",
     "category": "Language",
     "description": "A strongly typed programming language that builds on JavaScript for robust tooling.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/TypeScript.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/TypeScript.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Essential"
@@ -94,7 +94,7 @@
     "name": "Java",
     "category": "Language",
     "description": "A secure, object-oriented programming language designed for portability and enterprise scale.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Java-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Java.svg",
     "rating": 4.6,
     "difficulty": "Intermediate",
     "badge": "Robust"
@@ -104,7 +104,7 @@
     "name": "Tailwind CSS",
     "category": "Styling",
     "description": "A utility-first CSS framework packed with classes that can be composed to build custom UI.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/TailwindCSS-Dark.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Modern"
@@ -114,7 +114,7 @@
     "name": "Docker",
     "category": "DevOps",
     "description": "A platform designed to build, share, and run containerized applications anywhere.",
-    "icon": "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Docker.svg",
+    "icon": "https://icon.icepanel.io/Technology/svg/Docker.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Containers"

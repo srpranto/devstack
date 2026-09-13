@@ -1,10 +1,12 @@
+import BrandLogo from "./BrandLogo";
+
 const footerSections = [
   {
     title: "Product",
     links: [
       { label: "Home", href: "#home" },
       { label: "Technologies", href: "#technologies" },
-      { label: "Projects", href: "#projects" },
+      { label: "Projects", href: "#technologies" },
     ],
   },
   {
@@ -12,7 +14,7 @@ const footerSections = [
     links: [
       { label: "About", href: "#about" },
       { label: "Contact", href: "#contact" },
-      { label: "Careers", href: "#careers" },
+      { label: "Careers", href: "#contact" },
     ],
   },
   {
@@ -32,21 +34,14 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24">
+    <footer
+      id="contact"
+      className="bg-white border-t border-slate-100 mt-16 sm:mt-20 lg:mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div className="sm:col-span-2 text-center sm:text-left">
-            <a
-              href="#home"
-              className="flex items-center justify-center sm:justify-start gap-2"
-            >
-              <span className="w-7 h-7 rounded-lg brand-gradient flex items-center justify-center text-white font-black text-xs shadow-xs">
-                DS
-              </span>
-              <span className="text-lg font-bold tracking-tight text-slate-900">
-                Dev <span className="brand-gradient-text">Stack</span>
-              </span>
-            </a>
+            <BrandLogo className="justify-center sm:justify-start" />
             <p className="mt-4 text-xs text-slate-500 max-w-sm leading-relaxed mx-auto sm:mx-0">
               Curated tools, technologies, and resources to develop and build
               big modern software.
@@ -60,7 +55,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     target="_blank"
-                    rel="noreferrer noopener"
+                    rel="noopener noreferrer"
                     className="hover:text-violet-600"
                   >
                     {link.label}
